@@ -21,7 +21,7 @@ are located. The setup below is for **Windows and PowerShell**.
   (or an existing Conda installation).
 - **[.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)**
   to build our companion mod. Install the **SDK**, not just the runtime.
-- An **OpenAI API key** with access to **GPT-6 Sol** (`gpt-6-sol`).
+- An **OpenAI API key** with access to **GPT-6.1 Terra** (`gpt-6.1-terra`).
   The demo uses the official OpenAI API via
   [`project/config/openai.json`](project/config/openai.json).
 
@@ -58,10 +58,10 @@ Keep `.env` local; Git ignores it. `OA_OPENAI_KEY` is the key name used by this
 project; `OPENAI_API_KEY` is also accepted as a fallback. If both are set,
 `OA_OPENAI_KEY` takes precedence. If you use the fallback, remove or comment out
 the `OA_OPENAI_KEY` placeholder line from `.env`. The OpenAI preset explicitly uses
-`https://api.openai.com/v1` and `gpt-6-sol`. Both the default runner and the command
-below select this preset. The baseline uses Chat Completions function calling with
-`reasoning_effort="none"`, as required for this model
-([OpenAI model documentation](https://developers.openai.com/api/docs/models/gpt-6-sol)).
+`https://api.openai.com/v1` and `gpt-6.1-terra`. Both the default runner and the command
+below select this preset. The baseline uses **Responses API** function calling with
+`reasoning={"effort": "none"}` for the direct-action baseline
+([OpenAI model documentation](https://developers.openai.com/api/docs/models/gpt-6.1-terra)).
 
 Close Stardew Valley and SMAPI, then run:
 
@@ -134,7 +134,7 @@ isolated environment, and the companion was built from source with an empty
 NuGet cache against the existing game installation.
 
 The exact step-4 OpenAI command completed the demo with `success: true`,
-one verified grass tile removed, three model calls, and no API errors.
+one verified grass tile removed and no API errors.
 The **148 offline checks** also passed in that fresh environment.
 Model decisions and timing can vary between runs; use the included starting
 save, pinned dependencies, and the evaluator result to reproduce the demo.
@@ -149,7 +149,7 @@ Other game/SMAPI versions have not been validated by this check.
 | `Install the prebuilt StarDojoMod package first` | Verify the core DLL is under the game folder specified in `project/.env`. |
 | Connection refused / missing `shared_memory_10783.bin` | Start the game through SMAPI on port 10783; check the SMAPI console for mod loading errors. |
 | State-only observations unavailable | Confirm both mods loaded, then restart SMAPI after installing the companion. |
-| Missing key, authentication, or model-access error | Check `OA_OPENAI_KEY` (or `OPENAI_API_KEY`) in `project/.env`, API billing, and access to `gpt-6-sol`. |
+| Missing key, authentication, or model-access error | Check `OA_OPENAI_KEY` (or `OPENAI_API_KEY`) in `project/.env`, API billing, and access to `gpt-6.1-terra`. |
 | No movement / episode reaches its budget | Keep the game window active, close in-game menus, and reload the demo save before retrying. |
 
 Built on [StarDojo](https://github.com/StarDojo2025/stardojo).

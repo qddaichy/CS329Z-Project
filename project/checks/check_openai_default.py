@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 import httpx
 from openai import OpenAI
-from project.checks.check_react_baseline import state, response
+from project.checks.check_react_baseline import state
 from project.experiment_runner import api_key_for_config, main, parse_args
 from project.game.actions import ActionProxy
 
@@ -22,7 +22,7 @@ class OpenAIDefaultChecks(unittest.TestCase):
         config = json.loads(default.llm_config.read_text())
         self.assertEqual(config['provider'], 'openai')
         self.assertEqual(config['base_url'], 'https://api.openai.com/v1')
-        self.assertEqual(config['comp_model'], 'gpt-6-sol')
+        self.assertEqual(config['comp_model'], 'gpt-6.1-terra')
 
     def test_project_key_and_standard_key_fallback(self):
         config = {'key_var': 'OA_OPENAI_KEY'}
@@ -35,7 +35,15 @@ class OpenAIDefaultChecks(unittest.TestCase):
         requests = []
         def reply(request):
             requests.append((str(request.url), json.loads(request.content)))
-            return httpx.Response(200, json=response(('use', {'reason': 'Cut adjacent grass', 'direction': 1})).model_dump())
+            return httpx.Response(200, json={
+                'id': 'resp_test', 'object': 'response', 'created_at': 0,
+                'model': 'gpt-6.1-terra', 'parallel_tool_calls': False,
+                'tool_choice': 'required', 'tools': [],
+                'output': [{'type': 'function_call', 'id': 'fc_test', 'call_id': 'call_1',
+                            'name': 'use', 'arguments': json.dumps({'reason': 'Cut adjacent grass', 'direction': 1})}],
+                'usage': {'input_tokens': 30, 'input_tokens_details': {'cached_tokens': 0},
+                          'output_tokens': 10, 'output_tokens_details': {'reasoning_tokens': 0},
+                          'total_tokens': 40}})
         observations = iter([state(grass=[(1, 0)]), state()])
         def game_reply(proxy, message, print_message=True):
             return json.dumps(next(observations)) if message.startswith('observe_v2') else 'true'
@@ -51,9 +59,11 @@ class OpenAIDefaultChecks(unittest.TestCase):
             self.assertEqual(constructor.call_args.kwargs['base_url'], 'https://api.openai.com/v1')
             self.assertEqual(constructor.call_args.kwargs['api_key'], 'offline-test')
             url, payload = requests[0]
-            self.assertEqual(url, 'https://api.openai.com/v1/chat/completions')
-            self.assertEqual(payload['model'], 'gpt-6-sol')
-            self.assertEqual(payload['reasoning_effort'], 'none')
+            self.assertEqual(url, 'https://api.openai.com/v1/responses')
+            self.assertEqual(payload['model'], 'gpt-6.1-terra')
+            self.assertEqual(payload['reasoning']['effort'], 'none')
+            self.assertFalse(payload['store'])
+            self.assertTrue(payload['tools'][0]['strict'])
             self.assertTrue(json.loads((output / 'summary.json').read_text())['success'])
             self.assertEqual(json.loads((output / 'config.json').read_text())['llm_provider'], 'openai')
 
