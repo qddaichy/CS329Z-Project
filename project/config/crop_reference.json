@@ -1,0 +1,472 @@
+{
+  "source": "https://stardew.gs/crops/",
+  "game_version": "1.6.15.24356",
+  "scope": "Reference based on unmodified game data; base normal-quality sale value per harvested item, not seed cost or net profit. Growth assumes ordinary conditions without speed modifiers; watering, paddy water, season, greenhouse, unlocks, special seeds, yield, quality and professions can change outcomes. Wild seed mixtures can yield multiple products; cactus requires a valid indoor location.",
+  "crops": [
+    {
+      "name": "Ancient Fruit",
+      "initial_growth_days": 28,
+      "regrow_days": 7,
+      "base_unit_sell_price": 550,
+      "seasons": [
+        "spring",
+        "summer",
+        "fall"
+      ]
+    },
+    {
+      "name": "Blue Jazz",
+      "initial_growth_days": 7,
+      "regrow_days": null,
+      "base_unit_sell_price": 50,
+      "seasons": [
+        "spring"
+      ]
+    },
+    {
+      "name": "Cactus Fruit",
+      "initial_growth_days": 12,
+      "regrow_days": 3,
+      "base_unit_sell_price": 75,
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ]
+    },
+    {
+      "name": "Carrot",
+      "initial_growth_days": 3,
+      "regrow_days": null,
+      "base_unit_sell_price": 35,
+      "seasons": [
+        "spring"
+      ]
+    },
+    {
+      "name": "Cauliflower",
+      "initial_growth_days": 12,
+      "regrow_days": null,
+      "base_unit_sell_price": 175,
+      "seasons": [
+        "spring"
+      ]
+    },
+    {
+      "name": "Coffee Bean",
+      "initial_growth_days": 10,
+      "regrow_days": 2,
+      "base_unit_sell_price": 15,
+      "seasons": [
+        "spring",
+        "summer"
+      ]
+    },
+    {
+      "name": "Fiber",
+      "initial_growth_days": 7,
+      "regrow_days": null,
+      "base_unit_sell_price": 1,
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ]
+    },
+    {
+      "name": "Garlic",
+      "initial_growth_days": 4,
+      "regrow_days": null,
+      "base_unit_sell_price": 60,
+      "seasons": [
+        "spring"
+      ]
+    },
+    {
+      "name": "Green Bean",
+      "initial_growth_days": 10,
+      "regrow_days": 3,
+      "base_unit_sell_price": 40,
+      "seasons": [
+        "spring"
+      ]
+    },
+    {
+      "name": "Kale",
+      "initial_growth_days": 6,
+      "regrow_days": null,
+      "base_unit_sell_price": 110,
+      "seasons": [
+        "spring"
+      ]
+    },
+    {
+      "name": "Parsnip",
+      "initial_growth_days": 4,
+      "regrow_days": null,
+      "base_unit_sell_price": 35,
+      "seasons": [
+        "spring"
+      ]
+    },
+    {
+      "name": "Potato",
+      "initial_growth_days": 6,
+      "regrow_days": null,
+      "base_unit_sell_price": 80,
+      "seasons": [
+        "spring"
+      ]
+    },
+    {
+      "name": "Qi Fruit",
+      "initial_growth_days": 4,
+      "regrow_days": null,
+      "base_unit_sell_price": 1,
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ]
+    },
+    {
+      "name": "Rhubarb",
+      "initial_growth_days": 13,
+      "regrow_days": null,
+      "base_unit_sell_price": 220,
+      "seasons": [
+        "spring"
+      ]
+    },
+    {
+      "name": "Strawberry",
+      "initial_growth_days": 8,
+      "regrow_days": 4,
+      "base_unit_sell_price": 120,
+      "seasons": [
+        "spring"
+      ]
+    },
+    {
+      "name": "Tulip",
+      "initial_growth_days": 6,
+      "regrow_days": null,
+      "base_unit_sell_price": 30,
+      "seasons": [
+        "spring"
+      ]
+    },
+    {
+      "name": "Unmilled Rice",
+      "initial_growth_days": 8,
+      "regrow_days": null,
+      "base_unit_sell_price": 30,
+      "seasons": [
+        "spring"
+      ]
+    },
+    {
+      "name": "Wild Horseradish",
+      "initial_growth_days": 7,
+      "regrow_days": null,
+      "base_unit_sell_price": 50,
+      "seasons": [
+        "spring"
+      ]
+    },
+    {
+      "name": "Blueberry",
+      "initial_growth_days": 13,
+      "regrow_days": 4,
+      "base_unit_sell_price": 50,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Corn",
+      "initial_growth_days": 14,
+      "regrow_days": 4,
+      "base_unit_sell_price": 50,
+      "seasons": [
+        "summer",
+        "fall"
+      ]
+    },
+    {
+      "name": "Hops",
+      "initial_growth_days": 11,
+      "regrow_days": 1,
+      "base_unit_sell_price": 25,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Hot Pepper",
+      "initial_growth_days": 5,
+      "regrow_days": 3,
+      "base_unit_sell_price": 40,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Melon",
+      "initial_growth_days": 12,
+      "regrow_days": null,
+      "base_unit_sell_price": 250,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Pineapple",
+      "initial_growth_days": 14,
+      "regrow_days": 7,
+      "base_unit_sell_price": 300,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Poppy",
+      "initial_growth_days": 7,
+      "regrow_days": null,
+      "base_unit_sell_price": 140,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Radish",
+      "initial_growth_days": 6,
+      "regrow_days": null,
+      "base_unit_sell_price": 90,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Red Cabbage",
+      "initial_growth_days": 9,
+      "regrow_days": null,
+      "base_unit_sell_price": 260,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Spice Berry",
+      "initial_growth_days": 7,
+      "regrow_days": null,
+      "base_unit_sell_price": 80,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Starfruit",
+      "initial_growth_days": 13,
+      "regrow_days": null,
+      "base_unit_sell_price": 750,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Summer Spangle",
+      "initial_growth_days": 8,
+      "regrow_days": null,
+      "base_unit_sell_price": 90,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Summer Squash",
+      "initial_growth_days": 6,
+      "regrow_days": 3,
+      "base_unit_sell_price": 45,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Sunflower",
+      "initial_growth_days": 8,
+      "regrow_days": null,
+      "base_unit_sell_price": 80,
+      "seasons": [
+        "summer",
+        "fall"
+      ]
+    },
+    {
+      "name": "Taro Root",
+      "initial_growth_days": 10,
+      "regrow_days": null,
+      "base_unit_sell_price": 100,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Tomato",
+      "initial_growth_days": 11,
+      "regrow_days": 4,
+      "base_unit_sell_price": 60,
+      "seasons": [
+        "summer"
+      ]
+    },
+    {
+      "name": "Wheat",
+      "initial_growth_days": 4,
+      "regrow_days": null,
+      "base_unit_sell_price": 25,
+      "seasons": [
+        "summer",
+        "fall"
+      ]
+    },
+    {
+      "name": "Amaranth",
+      "initial_growth_days": 7,
+      "regrow_days": null,
+      "base_unit_sell_price": 150,
+      "seasons": [
+        "fall"
+      ]
+    },
+    {
+      "name": "Artichoke",
+      "initial_growth_days": 8,
+      "regrow_days": null,
+      "base_unit_sell_price": 160,
+      "seasons": [
+        "fall"
+      ]
+    },
+    {
+      "name": "Beet",
+      "initial_growth_days": 6,
+      "regrow_days": null,
+      "base_unit_sell_price": 100,
+      "seasons": [
+        "fall"
+      ]
+    },
+    {
+      "name": "Bok Choy",
+      "initial_growth_days": 4,
+      "regrow_days": null,
+      "base_unit_sell_price": 80,
+      "seasons": [
+        "fall"
+      ]
+    },
+    {
+      "name": "Broccoli",
+      "initial_growth_days": 8,
+      "regrow_days": 4,
+      "base_unit_sell_price": 70,
+      "seasons": [
+        "fall"
+      ]
+    },
+    {
+      "name": "Common Mushroom",
+      "initial_growth_days": 7,
+      "regrow_days": null,
+      "base_unit_sell_price": 40,
+      "seasons": [
+        "fall"
+      ]
+    },
+    {
+      "name": "Cranberries",
+      "initial_growth_days": 7,
+      "regrow_days": 5,
+      "base_unit_sell_price": 75,
+      "seasons": [
+        "fall"
+      ]
+    },
+    {
+      "name": "Eggplant",
+      "initial_growth_days": 5,
+      "regrow_days": 5,
+      "base_unit_sell_price": 60,
+      "seasons": [
+        "fall"
+      ]
+    },
+    {
+      "name": "Fairy Rose",
+      "initial_growth_days": 12,
+      "regrow_days": null,
+      "base_unit_sell_price": 290,
+      "seasons": [
+        "fall"
+      ]
+    },
+    {
+      "name": "Grape",
+      "initial_growth_days": 10,
+      "regrow_days": 3,
+      "base_unit_sell_price": 80,
+      "seasons": [
+        "fall"
+      ]
+    },
+    {
+      "name": "Pumpkin",
+      "initial_growth_days": 13,
+      "regrow_days": null,
+      "base_unit_sell_price": 320,
+      "seasons": [
+        "fall"
+      ]
+    },
+    {
+      "name": "Sweet Gem Berry",
+      "initial_growth_days": 24,
+      "regrow_days": null,
+      "base_unit_sell_price": 3000,
+      "seasons": [
+        "fall"
+      ]
+    },
+    {
+      "name": "Yam",
+      "initial_growth_days": 10,
+      "regrow_days": null,
+      "base_unit_sell_price": 160,
+      "seasons": [
+        "fall"
+      ]
+    },
+    {
+      "name": "Powdermelon",
+      "initial_growth_days": 7,
+      "regrow_days": null,
+      "base_unit_sell_price": 60,
+      "seasons": [
+        "winter"
+      ]
+    },
+    {
+      "name": "Winter Root",
+      "initial_growth_days": 7,
+      "regrow_days": null,
+      "base_unit_sell_price": 70,
+      "seasons": [
+        "winter"
+      ]
+    }
+  ]
+}

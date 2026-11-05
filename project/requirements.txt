@@ -1,0 +1,9 @@
+# API-only baseline and project utilities; Python 3.10.
+# No upstream embedding, vision, notebook, or GPU dependencies are needed.
+openai==1.76.2
+httpx==0.28.1
+python-dotenv==1.0.1
+cbor==1.0.0
+PyYAML==6.0.2
+psutil==7.0.0
+pywin32==312; sys_platform == "win32"

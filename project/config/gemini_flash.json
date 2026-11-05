@@ -1,0 +1,11 @@
+{
+    "provider": "gemini",
+    "key_var": "GEMINI_API_KEY",
+    "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+    "api_style": "openai",
+    "comp_model": "gemini-3.8-flash",
+    "thinking": true,
+    "reasoning_effort": "low",
+    "max_attempts": 3,
+    "is_azure": false
+}

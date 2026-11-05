@@ -1,0 +1,10 @@
+{
+  "Name": "StarDojo State Only",
+  "Author": "CS329z Project",
+  "Version": "1.0.0",
+  "Description": "Opt-in lightweight player and tile observations for StarDojo.",
+  "UniqueID": "CS329z.StarDojoStateOnly",
+  "EntryDll": "StateOnlyMod.dll",
+  "MinimumApiVersion": "4.0.0",
+  "Dependencies": [{"UniqueID": "stardojo.StardojoMod", "IsRequired": true}]
+}

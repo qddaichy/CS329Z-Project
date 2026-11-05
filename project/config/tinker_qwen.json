@@ -1,0 +1,10 @@
+{
+    "provider": "tinker",
+    "key_var": "TINKER_API_KEY",
+    "base_url": "https://tinker.thinkingmachines.dev/services/tinker-prod/anthropic/api",
+    "comp_model": "Qwen/Qwen3.8-27B",
+    "thinking": true,
+    "reasoning_effort": "low",
+    "max_attempts": 3,
+    "is_azure": false
+}

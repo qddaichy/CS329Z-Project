@@ -1,0 +1,5 @@
+{
+    "key_var": "OA_OPENAI_KEY",
+    "comp_model": "gpt-6-sol",
+    "is_azure": false
+}

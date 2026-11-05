@@ -1,0 +1,7 @@
+{
+    "provider": "openrouter",
+    "key_var": "OPENROUTER_API_KEY",
+    "base_url": "https://openrouter.ai/api/v1",
+    "comp_model": "openai/gpt-6.1-terra",
+    "is_azure": false
+}
