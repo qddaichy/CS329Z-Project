@@ -25,7 +25,6 @@ Clone this repository, open a Conda-enabled PowerShell terminal in its root, and
 conda create -n cs329z_project python=3.10.9 -y
 conda activate cs329z_project
 python -m pip install --no-user -r project/requirements.txt
-if (-not (Test-Path project/.env)) { Copy-Item project/.env.example project/.env }
 ```
 
 Skip `conda create` if the environment already exists. Keep its name
@@ -60,7 +59,7 @@ loaded successfully.
 | **B** | A + daily planning, skill review, and free-form reflection | `project.run_hybrid_reflection` |
 | **C** | B + structured economic beliefs, uncertainty, and evidence | `project.run_hybrid_economics` |
 
-**Before each run**, prepare the same starting farm. This creates and loads a
+**Before each run**, prepare the same starting setting. This creates and loads a
 separate save copy, initializes the experimental fixture, and sets cash to 500 gold:
 
 ```powershell
