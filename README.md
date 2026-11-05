@@ -1,6 +1,5 @@
 # CS329Z_project: Learning Agents in Stardew Valley
-
-We compare three agents: **A** creates reusable skills, **B** adds daily planning
+In this Project, we compare three agents: **A** creates reusable skills, **B** adds daily planning
 and reflection, and **C** adds structured economic beliefs. All use the same game
 API, observations, and evaluation.
 
@@ -8,7 +7,7 @@ Run all commands from the repository root in **Windows PowerShell**.
 
 ## 1. Prerequisites
 
-- **Stardew Valley**, launched once before installing mods.
+- **Stardew Valley**, Install the image (through Steam or other channels) and launched once before installing mods.
 - **[SMAPI](https://smapi.io/)** installed in the game directory
   ([Windows guide](https://stardewvalleywiki.com/Modding:Installing_SMAPI_on_Windows)).
 - **[StarDojoMod](https://www.nexusmods.com/stardewvalley/mods/34175)**:
