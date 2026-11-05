@@ -21,8 +21,9 @@ are located. The setup below is for **Windows and PowerShell**.
   (or an existing Conda installation).
 - **[.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)**
   to build our companion mod. Install the **SDK**, not just the runtime.
-- A **Gemini API key** with access to the model in
-  [`project/config/gemini_flash.json`](project/config/gemini_flash.json).
+- An **OpenAI API key** with access to **GPT-6 Sol** (`gpt-6-sol`).
+  The demo uses the official OpenAI API via
+  [`project/config/openai.json`](project/config/openai.json).
 
 The game, installed mods, and API credentials are not bundled in this repository.
 Both StarDojoMod and our companion are required. No GPU is required by the Python agent.
@@ -35,7 +36,7 @@ open a Conda-enabled PowerShell terminal in the repository root:
 ```powershell
 conda create -n cs329z_project python=3.10.9 -y
 conda activate cs329z_project
-python -m pip install -r project/requirements.txt
+python -m pip install --no-user -r project/requirements.txt
 if (-not (Test-Path project/.env)) { Copy-Item project/.env.example project/.env }
 ```
 
@@ -50,12 +51,17 @@ your key; replace the example values below:
 
 ```dotenv
 STARDEW_APP_PATH=C:/path/to/Stardew Valley/StardewModdingAPI.exe
-GEMINI_API_KEY=your-gemini-api-key
+OA_OPENAI_KEY=your-openai-api-key
 ```
 
-Keep `.env` local; Git ignores it. The demo explicitly selects Gemini and uses the
-model configured in `project/config/gemini_flash.json`. To use another accessible
-Gemini model, add `--model YOUR_MODEL_ID` to the agent command in step 4.
+Keep `.env` local; Git ignores it. `OA_OPENAI_KEY` is the key name used by this
+project; `OPENAI_API_KEY` is also accepted as a fallback. If both are set,
+`OA_OPENAI_KEY` takes precedence. If you use the fallback, remove or comment out
+the `OA_OPENAI_KEY` placeholder line from `.env`. The OpenAI preset explicitly uses
+`https://api.openai.com/v1` and `gpt-6-sol`. Both the default runner and the command
+below select this preset. The baseline uses Chat Completions function calling with
+`reasoning_effort="none"`, as required for this model
+([OpenAI model documentation](https://developers.openai.com/api/docs/models/gpt-6-sol)).
 
 Close Stardew Valley and SMAPI, then run:
 
@@ -66,7 +72,9 @@ python -m project.tools.install_mod --restart
 
 The first command builds **StateOnlyMod**, downloading missing build dependencies.
 The second installs it into `Mods/StarDojoStateOnly/` and starts SMAPI on port
-**10783**. Wait for the game to reach its title screen before continuing.
+**10783**. Wait for the game to reach its title screen before continuing. The SMAPI console
+should list both `StardojoMod` and `StarDojo State Only` as loaded.
+If the connection check fails, fix the mod loading error before starting the agent.
 
 ## 4. Run one agent
 
@@ -77,13 +85,14 @@ python -m project.tools.control_smoke --load-test-save
 ```
 
 This setup command makes no model calls. It creates a timestamped save, loads it,
-sets its starting balance to 500 gold, and checks game observations. It switches
+sets its starting balance to 500 gold, and checks game observations. Wait for
+`"passed": true` in its output before starting the agent. It switches
 away from any currently loaded save; use it with the game at the title screen.
 
 Now run a **ReAct agent** with a small, independently checked goal: cut one grass tile.
 
 ```powershell
-python -m project.run_react --provider gemini --cut-grass 1 --max-steps 30 --max-seconds 180
+python -m project.run_react --provider openai --cut-grass 1 --max-steps 30 --max-seconds 180
 ```
 
 Click the **game window** and keep it active while the agent runs. Decisions and
@@ -116,6 +125,21 @@ python -m unittest discover -s project/checks -p "check_*.py"
 
 These checks use simulated game/model responses; they do not run a live episode.
 
+## Verified setup
+
+Verified on **November 5, 2026**, with Windows, Python **3.10.9**,
+.NET SDK **8.0.403**, Stardew Valley **1.6.15**, SMAPI **4.5.2**, and
+StarDojoMod **1.0.0**. The Python dependencies were installed into a fresh
+isolated environment, and the companion was built from source with an empty
+NuGet cache against the existing game installation.
+
+The exact step-4 OpenAI command completed the demo with `success: true`,
+one verified grass tile removed, three model calls, and no API errors.
+The **148 offline checks** also passed in that fresh environment.
+Model decisions and timing can vary between runs; use the included starting
+save, pinned dependencies, and the evaluator result to reproduce the demo.
+Other game/SMAPI versions have not been validated by this check.
+
 ## Troubleshooting
 
 | Symptom | What to check |
@@ -125,7 +149,7 @@ These checks use simulated game/model responses; they do not run a live episode.
 | `Install the prebuilt StarDojoMod package first` | Verify the core DLL is under the game folder specified in `project/.env`. |
 | Connection refused / missing `shared_memory_10783.bin` | Start the game through SMAPI on port 10783; check the SMAPI console for mod loading errors. |
 | State-only observations unavailable | Confirm both mods loaded, then restart SMAPI after installing the companion. |
-| Missing key, authentication, or model-access error | Check `GEMINI_API_KEY` in `project/.env` and access to the configured model. |
+| Missing key, authentication, or model-access error | Check `OA_OPENAI_KEY` (or `OPENAI_API_KEY`) in `project/.env`, API billing, and access to `gpt-6-sol`. |
 | No movement / episode reaches its budget | Keep the game window active, close in-game menus, and reload the demo save before retrying. |
 
 Built on [StarDojo](https://github.com/StarDojo2025/stardojo).

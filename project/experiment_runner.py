@@ -83,7 +83,7 @@ def parse_args(argv=None, default_strategy="react"):
                         help="Compact current tiles and past state, or send original full observations.")
     parser.add_argument("--settle-seconds", type=float, default=0.7)
     parser.add_argument("--no-pause", action="store_true", help="Let game time advance during LLM requests.")
-    parser.add_argument("--provider", choices=('tinker', 'openrouter', 'gemini'), help="Select a provider preset without editing config files.")
+    parser.add_argument("--provider", choices=('openai', 'tinker', 'openrouter', 'gemini'), help="Select a provider preset (default: openai).")
     parser.add_argument("--llm-config", type=Path, default=None)
     parser.add_argument("--model", help="Override comp_model in the LLM config.")
     parser.add_argument("--strategy", choices=("react", "high_level", *HYBRID_STRATEGIES), default=default_strategy,
@@ -103,7 +103,7 @@ def parse_args(argv=None, default_strategy="react"):
     parser.add_argument("--list-tools", action="store_true", help="Print tool schemas without connecting.")
     args = parser.parse_args(argv)
     if args.llm_config is None:
-        args.llm_config = PROJECT_ROOT / 'config' / {'tinker': 'tinker_qwen.json', 'openrouter': 'llm.json', 'gemini': 'gemini_flash.json', None: 'gemini_flash.json'}[args.provider]
+        args.llm_config = PROJECT_ROOT / 'config' / {'openai': 'openai.json', 'tinker': 'tinker_qwen.json', 'openrouter': 'llm.json', 'gemini': 'gemini_flash.json', None: 'openai.json'}[args.provider]
     if args.max_completion_tokens is None:
         args.max_completion_tokens = 2048 if args.strategy in HYBRID_STRATEGIES else 512
     if args.disable_skill_synthesis and args.strategy not in HYBRID_STRATEGIES:

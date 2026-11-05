@@ -39,7 +39,6 @@ class GeminiChecks(unittest.TestCase):
 
     def test_gemini_provider_uses_own_config(self):
         self.assertEqual(parse_args(['--provider','gemini']).llm_config.name,'gemini_flash.json')
-        self.assertEqual(parse_args([]).llm_config.name,'gemini_flash.json')
 
     def test_minimal_is_supported_for_flash_lite_but_not_38(self):
         native=response(('wait',{'reason':'test','duration_ms':50})).model_dump()

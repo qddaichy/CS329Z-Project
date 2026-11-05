@@ -1,5 +1,7 @@
 {
     "key_var": "OA_OPENAI_KEY",
     "comp_model": "gpt-6-sol",
-    "is_azure": false
+    "is_azure": false,
+    "provider": "openai",
+    "base_url": "https://api.openai.com/v1"
 }
