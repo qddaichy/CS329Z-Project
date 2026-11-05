@@ -27,3 +27,6 @@ __pycache__/
 htmlcov/
 .DS_Store
 Thumbs.db
+
+# Local documentation (all docs directories)
+docs/
